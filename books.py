@@ -73,13 +73,10 @@ if __name__ == '__main__':
     url = ''
     books = []
     for user in configs:
-        if user['url'] != url:
+        if 'url' in user and user['url'] != url:
             url = user['url']
         filename = user['filename'] if user['filename'] else False
-        payload = {
-            'userid': user['username'],
-            'password': user['password']
-        }
+        payload = {'userid': user['username'], 'password': user['password']}
         xml = fetch(url, payload, filename)
         books.extend(load(xml))
     print(report(books))
