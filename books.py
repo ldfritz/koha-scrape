@@ -14,8 +14,9 @@ class Book():
     def parse_title(self):
         title_sel = lxml.cssselect.CSSSelector('.title > a')
         title = title_sel(self.xml)[0].text_content()
-        inner_space = re.compile(r'\s+/?\s*\n?\s*')
-        title = re.sub(inner_space, ' ', title).strip()
+        title = title.strip()
+        trailing_slash = re.compile(r'\s*/')
+        title = re.sub(trailing_slash, '', title)
         return title
 
     def parse_due_date(self):
