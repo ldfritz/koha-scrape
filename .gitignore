@@ -1,5 +1,5 @@
 env/
-config.json
+config.json*
 __pycache__/
 *html
 report.txt

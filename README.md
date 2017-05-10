@@ -17,6 +17,8 @@ requests
 ```
 
 Create a `config.json` file with the following pieces of information.
+Only the first user record requires a URL.
+The filename is optional and is only needed if you want to save the downloaded page.
 
 ```json
 [
@@ -25,13 +27,16 @@ Create a `config.json` file with the following pieces of information.
     "filename": "some-filename.html",
     "username": "your_username",
     "password": "your_password"
-  }
+  },
+  {
+    "username": "another_username",
+    "password": "another_password"
+  },
 ]
 ```
 
-Run the download and then the parser.
+Run the download and parse.
 
 ```bash
-python download.py
-python parse.py
+python books.py
 ```
